@@ -1,7 +1,7 @@
 import { askUser } from "./askUser.js";
 import { programData, saveData } from "./storage.js";
 
-import { Giveaway } from "./types.js";
+import { Giveaway, User } from "./types.js";
 import { askUserNewGiveawayData } from "./ui.js";
 
 export const loginUser = (email: string, password: string): void => {
@@ -19,4 +19,22 @@ export const loginUser = (email: string, password: string): void => {
     : (programData.isAdmin = false);
 
   programData.userEmail = email;
+};
+
+export const createGiveaway = (): void => {
+  const newGiveaway = askUserNewGiveawayData();
+
+  if (!newGiveaway) {
+    console.error("No se ha podido crear el sorteo. Inténtelo de nuevo.");
+    process.exit();
+  }
+
+  programData.giveaways.push({
+    name: newGiveaway.giveawayName,
+    socialNetwork: newGiveaway.giveawaySocialNetwork,
+    participants: [],
+  });
+
+  saveData();
+  console.log("El sorteo se ha creado correctamente.");
 };
