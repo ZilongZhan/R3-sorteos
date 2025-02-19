@@ -2,7 +2,7 @@ import { askUser } from "./askUser.js";
 import {
   createGiveaway,
   deleteGiveaway,
-  // , enterGiveaway
+  enterGiveaway,
   listGiveaways,
   // , listUserGiveaways
 } from "./giveaways.js";
@@ -60,7 +60,7 @@ export const processMainMenuOption = (option: number): void => {
         printMainMenu();
       } else {
         const giveawayNumber = askUser("¿En qué sorteo quieres inscribirte? ");
-        // enterGiveaway(+giveawayNumber);
+        enterGiveaway(+giveawayNumber);
         printMainMenu();
       }
       break;

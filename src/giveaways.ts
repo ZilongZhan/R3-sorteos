@@ -69,3 +69,34 @@ export const deleteGiveaway = (giveawayNumber: number): void => {
   saveData();
   console.log("El sorteo se ha eliminado correctamente.");
 };
+
+export const enterGiveaway = (giveawayNumber: number): void => {
+  const giveawayIndex = giveawayNumber - 1;
+  const giveawayToEnter = programData.giveaways.at(giveawayIndex);
+
+  const currentUserEmail = programData.userEmail;
+  const userToEnter = programData.users.find(
+    (user) => currentUserEmail === user.email
+  )!;
+
+  if (!giveawayToEnter) {
+    console.log("El sorteo que ha introducido no existe.");
+    return;
+  }
+
+  const isAlreadyRegistered = giveawayToEnter.participants.some(
+    (participant) => participant.email === userToEnter.email
+  );
+
+  if (isAlreadyRegistered) {
+    console.log(
+      `Ya está inscrito a este sorteo. Pruebe de inscribirse a otro sorteo.`
+    );
+    return;
+  }
+
+  giveawayToEnter.participants.push(userToEnter);
+
+  saveData();
+  console.log(`Se ha inscrito al sorteo ${giveawayNumber} correctamente.`);
+};
