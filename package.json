@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "build:dev": "tsc --watch",
     "start": "node .",
     "clean-data": "rm data/data.json"
   },
