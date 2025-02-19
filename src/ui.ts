@@ -1,7 +1,7 @@
 import { askUser } from "./askUser.js";
 import {
   createGiveaway,
-  // , deleteGiveaway
+  deleteGiveaway,
   // , enterGiveaway
   listGiveaways,
   // , listUserGiveaways
@@ -67,7 +67,7 @@ export const processMainMenuOption = (option: number): void => {
     case 3:
       if (isAdmin) {
         const giveawayNumber = askUser("¿Qué sorteo quieres eliminar? ");
-        // deleteGiveaway(+giveawayNumber);
+        deleteGiveaway(+giveawayNumber);
         printMainMenu();
       } else {
         // listUserGiveaways();

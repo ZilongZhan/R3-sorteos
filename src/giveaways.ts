@@ -54,3 +54,18 @@ export const listGiveaways = (): void => {
     console.log(`${index + 1}. ${giveaway.name}`);
   });
 };
+
+export const deleteGiveaway = (giveawayNumber: number): void => {
+  const giveawayIndex = giveawayNumber - 1;
+  const giveawayToDelete = programData.giveaways.at(giveawayIndex);
+
+  if (!giveawayToDelete) {
+    console.log("El sorteo que ha introducido no existe.");
+    return;
+  }
+
+  programData.giveaways.splice(giveawayIndex, 1);
+
+  saveData();
+  console.log("El sorteo se ha eliminado correctamente.");
+};
