@@ -100,3 +100,28 @@ export const enterGiveaway = (giveawayNumber: number): void => {
   saveData();
   console.log(`Se ha inscrito al sorteo ${giveawayNumber} correctamente.`);
 };
+
+export const listUserGiveaways = (): void => {
+  const giveaways = programData.giveaways;
+  const currentUserEmail = programData.userEmail;
+
+  const registeredGiveaways = giveaways.filter((giveaway) =>
+    giveaway.participants.some(
+      (participant) => currentUserEmail === participant.email
+    )
+  );
+  const registeredGiveawaysTotal = registeredGiveaways.length;
+
+  if (!registeredGiveaways) {
+    console.log("No está inscrito a ningún sorteo en este momento");
+    return;
+  }
+
+  console.log(
+    `Estás inscrito en los siguientes ${registeredGiveawaysTotal} sorteos:\n`
+  );
+
+  registeredGiveaways.forEach((giveaway, index) => {
+    console.log(`${index + 1}. ${giveaway.name} en ${giveaway.socialNetwork}`);
+  });
+};

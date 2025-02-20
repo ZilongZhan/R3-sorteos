@@ -4,7 +4,7 @@ import {
   deleteGiveaway,
   enterGiveaway,
   listGiveaways,
-  // , listUserGiveaways
+  listUserGiveaways,
 } from "./giveaways.js";
 import { programData } from "./storage.js";
 
@@ -70,7 +70,7 @@ export const processMainMenuOption = (option: number): void => {
         deleteGiveaway(+giveawayNumber);
         printMainMenu();
       } else {
-        // listUserGiveaways();
+        listUserGiveaways();
         printMainMenu();
       }
       break;
