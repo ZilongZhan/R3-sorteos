@@ -25,8 +25,8 @@ export const createGiveaway = (): void => {
   const newGiveaway = askUserNewGiveawayData();
 
   if (!newGiveaway) {
-    console.error("No se ha podido crear el sorteo. Inténtelo de nuevo.");
-    process.exit();
+    console.log("No se ha podido crear el sorteo. Inténtelo de nuevo.");
+    return;
   }
 
   programData.giveaways.push({
@@ -45,7 +45,7 @@ export const listGiveaways = (): void => {
 
   if (!giveaways) {
     console.log("No hay ningún sorteo disponible ahora mismo.");
-    process.exit;
+    return;
   }
 
   console.log(`Éstos son los ${giveawaysTotal} sorteos disponibles:\n`);
