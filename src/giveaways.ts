@@ -51,7 +51,7 @@ export const listGiveaways = (): void => {
   console.log(`Éstos son los ${giveawaysTotal} sorteos disponibles:\n`);
 
   giveaways.forEach((giveaway, index) => {
-    console.log(`${index + 1}. ${giveaway.name}`);
+    console.log(`${index + 1}. ${giveaway.name} en ${giveaway.socialNetwork}`);
   });
 };
 
