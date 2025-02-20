@@ -112,7 +112,7 @@ export const listUserGiveaways = (): void => {
   );
   const registeredGiveawaysTotal = registeredGiveaways.length;
 
-  if (!registeredGiveaways) {
+  if (!registeredGiveaways.length) {
     console.log("No estás inscrito a ningún sorteo en este momento");
     return;
   }
