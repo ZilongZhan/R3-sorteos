@@ -10,7 +10,7 @@ export const loginUser = (email: string, password: string): void => {
   );
 
   if (!currentUser) {
-    console.error("Compruebe los credenciales e introdúzcalos de nuevo");
+    console.error("Comprueba los credenciales e introdúcelos de nuevo");
     process.exit();
   }
 
@@ -25,7 +25,7 @@ export const createGiveaway = (): void => {
   const newGiveaway = askUserNewGiveawayData();
 
   if (!newGiveaway) {
-    console.log("No se ha podido crear el sorteo. Inténtelo de nuevo.");
+    console.log("No se ha podido crear el sorteo. Inténta de nuevo.");
     return;
   }
 
@@ -61,7 +61,7 @@ export const deleteGiveaway = (giveawayNumber: number): void => {
   const giveawayToDelete = giveaways.at(giveawayIndex);
 
   if (!giveawayToDelete) {
-    console.log("El sorteo que ha introducido no existe.");
+    console.log("El sorteo que has introducido no existe.");
     return;
   }
 
@@ -82,7 +82,7 @@ export const enterGiveaway = (giveawayNumber: number): void => {
   )!;
 
   if (!giveawayToEnter) {
-    console.log("El sorteo que ha introducido no existe.");
+    console.log("El sorteo que has introducido no existe.");
     return;
   }
 
@@ -92,7 +92,7 @@ export const enterGiveaway = (giveawayNumber: number): void => {
 
   if (isAlreadyRegistered) {
     console.log(
-      `Ya está inscrito a este sorteo. Pruebe de inscribirse a otro sorteo.`
+      `Ya estás inscrito en este sorteo. Prueba de inscribirte en otro.`
     );
     return;
   }
@@ -100,7 +100,7 @@ export const enterGiveaway = (giveawayNumber: number): void => {
   giveawayToEnter.participants.push(userToEnter);
 
   saveData();
-  console.log(`Se ha inscrito al sorteo ${giveawayNumber} correctamente.`);
+  console.log(`Te has inscrito al sorteo ${giveawayNumber} correctamente.`);
 };
 
 export const listUserGiveaways = (): void => {
@@ -115,7 +115,7 @@ export const listUserGiveaways = (): void => {
   const registeredGiveawaysTotal = registeredGiveaways.length;
 
   if (!registeredGiveaways) {
-    console.log("No está inscrito a ningún sorteo en este momento");
+    console.log("No estás inscrito a ningún sorteo en este momento");
     return;
   }
 
