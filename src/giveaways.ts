@@ -1,7 +1,7 @@
 import { askUser } from "./askUser.js";
 import { programData, saveData } from "./storage.js";
 
-import { Giveaway, User } from "./types.js";
+import { Giveaway } from "./types.js";
 import { askUserNewGiveawayData } from "./ui.js";
 
 export const loginUser = (email: string, password: string): void => {
@@ -56,8 +56,9 @@ export const listGiveaways = (): void => {
 };
 
 export const deleteGiveaway = (giveawayNumber: number): void => {
+  const giveaways = programData.giveaways;
   const giveawayIndex = giveawayNumber - 1;
-  const giveawayToDelete = programData.giveaways.at(giveawayIndex);
+  const giveawayToDelete = giveaways.at(giveawayIndex);
 
   if (!giveawayToDelete) {
     console.log("El sorteo que ha introducido no existe.");
@@ -71,8 +72,9 @@ export const deleteGiveaway = (giveawayNumber: number): void => {
 };
 
 export const enterGiveaway = (giveawayNumber: number): void => {
+  const giveaways = programData.giveaways;
   const giveawayIndex = giveawayNumber - 1;
-  const giveawayToEnter = programData.giveaways.at(giveawayIndex);
+  const giveawayToEnter = giveaways.at(giveawayIndex);
 
   const currentUserEmail = programData.userEmail;
   const userToEnter = programData.users.find(
@@ -85,7 +87,7 @@ export const enterGiveaway = (giveawayNumber: number): void => {
   }
 
   const isAlreadyRegistered = giveawayToEnter.participants.some(
-    (participant) => participant.email === userToEnter.email
+    (participant) => participant.email === currentUserEmail
   );
 
   if (isAlreadyRegistered) {
