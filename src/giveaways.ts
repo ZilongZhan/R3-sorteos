@@ -12,9 +12,7 @@ export const loginUser = (email: string, password: string): void => {
     process.exit();
   }
 
-  currentUser.isAdmin
-    ? (programData.isAdmin = true)
-    : (programData.isAdmin = false);
+  programData.isAdmin = currentUser.isAdmin;
 
   programData.userEmail = email;
 
