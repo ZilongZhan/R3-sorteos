@@ -43,7 +43,7 @@ export const listGiveaways = (): void => {
   const giveaways = programData.giveaways;
   const giveawaysTotal = giveaways.length;
 
-  if (!giveaways) {
+  if (!giveaways.length) {
     console.log("No hay ningún sorteo disponible ahora mismo.");
     return;
   }
