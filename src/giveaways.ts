@@ -17,6 +17,8 @@ export const loginUser = (email: string, password: string): void => {
     : (programData.isAdmin = false);
 
   programData.userEmail = email;
+
+  console.log(`Bienvenido, ${currentUser.name}!`);
 };
 
 export const createGiveaway = (): void => {
